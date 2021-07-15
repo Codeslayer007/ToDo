@@ -1,0 +1,66 @@
+<%- include("header") -%>
+
+  <div class="header">
+
+    <!-- main Code starts -->
+    <div class="box" id="heading">
+      <h1>
+        <%= listTitle %>
+      </h1>
+      <form class="item" action="/newtodo" method="post">
+        <input type="text" name="title" placeholder="Want another list?" autocomplete="off">
+        <button type="submit" name="list_name" value="<%= listTitle %>">+</button>
+      </form>
+    </div>
+  
+  
+    <div class="box">
+  
+  
+      <% newListItems.forEach(function(item){ %>
+  
+        <form action="/delete" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+            <p>
+              <%=item.name%>
+            </p>
+          </div>
+          <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+        </form>
+        <% }) %>
+  
+  
+          <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value="<%= listTitle %>">+</button>
+          </form>
+    </div>
+
+    <!-- main code ends -->
+
+
+    
+    <!--Waves Container-->
+    <div>
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+      </svg>
+    </div>
+    <!--Waves end-->
+
+  </div>
+  <!--Header ends-->
+
+  
+
+  <%- include("footer") -%>
