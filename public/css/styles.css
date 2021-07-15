@@ -127,7 +127,10 @@ footer {
   max-height:150px;
 }
 
-
+.end{
+  text-decoration: none;
+  color: inherit;
+}
 /* Animation */
 
 .parallax > use {
