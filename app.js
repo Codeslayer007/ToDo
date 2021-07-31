@@ -12,8 +12,8 @@ app.use(express.urlencoded({
   extended: true
 }));
 app.use(express.static("public"));
-
-mongoose.connect("mongodb+srv://admin-Sayan:Sayan19279@todo.mrpx0.mongodb.net/todolistDB", { useNewUrlParser: true });
+const URL  = ""; // add mongo db url
+mongoose.connect(URL, { useNewUrlParser: true });
 
 const itemsSchema = {
   name: String
